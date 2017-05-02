@@ -1,0 +1,33 @@
+.message-text {
+    padding: 4px 8px 2px 8px;
+    font-size: 18px;
+    overflow-wrap: break-word;
+}
+
+.message-time {
+    padding: 0px 10px 2px 0px;
+    text-align: -webkit-right;
+    font-size: 14px;
+}
+
+.received {
+    text-align: -webkit-left;
+}
+
+.sent {
+    text-align: -webkit-right;
+}
+
+.message-received {
+    background: #faebd7;
+}
+
+.message-sent {
+    background: #c3c6ea;
+}
+
+.message {
+    max-width: 65%;
+    min-width: 15%;
+    text-align: -webkit-left;
+}

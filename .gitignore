@@ -3,3 +3,6 @@ app/**/*.js
 app/**/*.map
 node_modules
 bower_components
+.DS_Store
+dist
+release-builds

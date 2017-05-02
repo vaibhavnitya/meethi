@@ -1,0 +1,33 @@
+<div class="conversation-div">
+    <div class="contact-details">
+
+    </div>
+    <div infinite-scroll class="contents" #infiniteScroll
+        [infiniteScrollDistance]="1"
+        [infiniteScrollUpDistance]="10"
+        [infiniteScrollThrottle]="300"
+        (scrolled)="onScrollDown()"
+        (scrolledUp)="onScrollUp()"
+        [infiniteScrollContainer]="infiniteScroll"
+        >
+        <div *ngFor="let conversation of conversationData" class="conversation-list-item">
+            <st-conversation-chat [chatData]="conversation"></st-conversation-chat>
+        </div>
+    </div>
+    <div class="text-message">
+        <div class="text-input">
+            <iron-autogrow-textarea 
+                autofocus=true 
+                placeholder="Type your message here..." 
+                maxlength=1024 
+                class="text-input-area" 
+                #message>
+            </iron-autogrow-textarea>
+        </div>
+        <div class="send-button-div">
+            <paper-button class="send-button" raised (click)="sendMessage(message.value)">
+                <iron-icon icon="send"></iron-icon>&nbsp;SEND
+            </paper-button>
+        </div>
+    </div>
+</div>

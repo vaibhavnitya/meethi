@@ -1,17 +1,20 @@
 {
-  "name": "angular2-polymer-quickstart",
+  "name": "meethi",
   "version": "1.0.0",
-  "description": "Example application build with Angular 2 and Polymer elements",
-  "repository": "https://github.com/vaadin/angular2-polymer-quickstart.git",
+  "description": "A cross platform chat application",
   "scripts": {
-    "start": "tsc && concurrently \"npm run tsc:w\" \"npm run lite\" ",
-    "lite": "lite-server",
     "postinstall": "typings install",
-    "tsc": "tsc",
-    "tsc:w": "tsc -w",
-    "typings": "typings"
+    "typings": "typings",
+    "build": "webpack",
+    "watch": "webpack --progress --colors --watch",
+    "start-dev": "webpack-dev-server",
+    "native": "electron .",
+    "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=app/assets/images/appicon.icns --prune=true --out=release-builds",
+    "package-win": "electron-packager . --overwrite --asar=true --platform=win32 --arch=ia32 --icon=app/assets/images/appicon.ico --prune=true --out=release-builds --version-string.CompanyName=meethi --version-string.FileDescription=meethi --version-string.ProductName=\"meethi\"",
+    "package-linux": "electron-packager . --overwrite --platform=linux --arch=x64 --icon=app/assets/images/appicon.png --prune=true --out=release-builds"
   },
-  "license": "Apache-2.0",
+  "author": "Vaibhav N",
+  "license": "MIT",
   "dependencies": {
     "@angular/common": "~2.2.0",
     "@angular/compiler": "~2.2.0",
@@ -21,21 +24,24 @@
     "@angular/platform-browser": "~2.2.0",
     "@angular/platform-browser-dynamic": "~2.2.0",
     "@angular/router": "~3.2.0",
-
-    "systemjs": "0.19.40",
+    "@vaadin/angular2-polymer": "1.0.0-beta5",
+    "angular2-in-memory-web-api": "0.0.20",
+    "angular2-infinite-scroll": "^0.3.4",
     "core-js": "^2.4.1",
     "reflect-metadata": "^0.1.8",
     "rxjs": "5.0.0-beta.12",
-    "zone.js": "^0.6.26",
-
-    "@vaadin/angular2-polymer": "1.0.0-beta5",
-
-    "angular2-in-memory-web-api": "0.0.20"
+    "systemjs": "0.19.40",
+    "zone.js": "^0.6.26"
   },
   "devDependencies": {
     "concurrently": "^3.1.0",
+    "electron-packager": "^8.6.0",
+    "electron-prebuilt": "^1.2.0",
     "lite-server": "^2.2.2",
+    "ts-loader": "^2.0.3",
     "typescript": "^2.0.10",
-    "typings": "^1.0.4"
+    "typings": "^1.0.4",
+    "webpack": "1.13.0",
+    "webpack-dev-server": "1.14.1"
   }
 }
